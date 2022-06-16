@@ -1,5 +1,6 @@
 package com.revature.frittte.order;
 
+import com.revature.frittte.customer.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
@@ -36,6 +37,11 @@ public class OrderServices {
             }
         }
         return myOrders;
+    }
+
+    public OrderData update(OrderData updatedOrder) {
+        orderDao.save(updatedOrder);
+        return updatedOrder;
     }
     public boolean validateInput (OrderData orderData){
         if (orderData == null) return false;

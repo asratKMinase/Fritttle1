@@ -48,7 +48,11 @@ public class OrderServlet {
         return new ResponseEntity<>(persistedOrder, HttpStatus.CREATED);
 
     }
-
+    @PutMapping("/updateOrder")
+    public ResponseEntity<OrderData> updateCustomer(@RequestBody OrderData order) {
+        OrderData newOrder = orderServices.update(order);
+        return new ResponseEntity<>(newOrder, HttpStatus.OK);
+    }
     @GetMapping("/findAllMyOrders/{username}")
     public ResponseEntity<List> findAllMyOrders(@PathVariable String username) {
         return new ResponseEntity<>(orderServices.findAllMyOrders(username), HttpStatus.OK);
