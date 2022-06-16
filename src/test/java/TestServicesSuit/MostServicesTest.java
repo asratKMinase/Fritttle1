@@ -76,7 +76,7 @@ public class MostServicesTest {
     @Test
     public void test_validInput_givenCreditCard_returnTrue(){
 
-        CreditCard creditCard = new CreditCard(5555555,"Geoffrey", 999,"9-23", 20, stu );
+        CreditCard creditCard = new CreditCard("5555555","Geoffrey", 999,"9-23", 20, stu );
 
         boolean actualResult = sut.validateInput(creditCard);
 
