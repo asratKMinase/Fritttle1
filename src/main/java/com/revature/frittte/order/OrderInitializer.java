@@ -21,5 +21,6 @@ public class OrderInitializer {
     private String orderDate;
     private String itemName;
     private String comment;
+    private String customerUsername;
 
 }
