@@ -39,6 +39,12 @@ public class CreditCardServlet {
         return new ResponseEntity<>(creditCard, HttpStatus.CREATED);
 
     }
+    @PutMapping("/updateLimit")
+    public ResponseEntity<CreditCard> updateFoodItem(@RequestBody CreditCard creditCard) {
+        CreditCard updateCreditCard= creditCardService.update(creditCard);
+        return new ResponseEntity<>(updateCreditCard, HttpStatus.OK);
+    }
+
 
     @GetMapping("/findCard")
     public ResponseEntity<CreditCard> FindCreditCard(@RequestBody int findCreditCard){

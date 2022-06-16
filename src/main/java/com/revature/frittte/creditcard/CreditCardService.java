@@ -29,6 +29,12 @@ public class CreditCardService {
         return true;
     }
 
+    public CreditCard update(CreditCard updateCreditCard){
+        creditCardDao.save(updateCreditCard);
+        return updateCreditCard;
+    }
+
+
     public CreditCard create(CreditCard newCreditCard){
 
         if(!validateInput(newCreditCard)){
