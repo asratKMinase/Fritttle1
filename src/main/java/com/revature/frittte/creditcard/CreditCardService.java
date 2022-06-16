@@ -19,13 +19,13 @@ public class CreditCardService {
         this.creditCardDao = creditCardDao;
     }
 
-    public CreditCard findById(int id)
+    public CreditCard findById(String id)
     {
          CreditCard creditCard = creditCardDao.findById(id).get();
          return creditCard;
     }
     public boolean delete(String creditCardNumber){
-        creditCardDao.deleteById(Integer.valueOf(creditCardNumber));
+        creditCardDao.deleteById(creditCardNumber);
         return true;
     }
 
@@ -53,9 +53,7 @@ public class CreditCardService {
     public boolean validateInput(CreditCard newCreditCard){
         if(newCreditCard == null ) return false;
         if(newCreditCard.getCreditCardName() == null || newCreditCard.getCreditCardName().trim().equals("")) return false;
-        if(newCreditCard.getCreditCardNumber() == 0 ) return false;
-        System.out.println("here is the problem");
-        if(newCreditCard.getCreditCardNumber() <= 0) return false;
+        if(newCreditCard.getCreditCardNumber() == null || newCreditCard.getCreditCardNumber().trim().equals("")) return false;
         if(newCreditCard.getCvv() == 0 ) return false;
         if(newCreditCard.getCvv() <= 0) return false;
         if(newCreditCard.getExpDate() == null || newCreditCard.getExpDate().trim().equals("")) return false;

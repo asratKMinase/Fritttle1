@@ -53,7 +53,7 @@ public class CreditCardServlet {
 
 
     @GetMapping("/findCard")
-    public ResponseEntity<CreditCard> FindCreditCard(@RequestBody int findCreditCard){
+    public ResponseEntity<CreditCard> FindCreditCard(@RequestParam String findCreditCard){
         CreditCard creditCard = creditCardService.findById(findCreditCard);
         return new ResponseEntity<>(creditCard, HttpStatus.OK);
     }

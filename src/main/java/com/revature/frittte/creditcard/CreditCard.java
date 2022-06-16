@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class CreditCard {
     @Id
     @Column(name = "cc_number", nullable = false)
-    private long creditCardNumber;
+    private String creditCardNumber;
     @Column(name = "cc_name" ,nullable = false)
     private String creditCardName;
     private int cvv;
