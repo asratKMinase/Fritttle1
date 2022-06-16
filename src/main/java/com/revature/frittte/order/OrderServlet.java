@@ -35,7 +35,7 @@ public class OrderServlet {
 
         //CCInitializer initCC = mapper.readValue(req.getInputStream(), CCInitializer.class); // from JSON to Java Object (Pokemon)
         Food itemName = foodServices.readById(initOrder.getItemName());
-//        newOrder.setId(initOrder.getId());
+        newOrder.setId(initOrder.getId());
         newOrder.setOrderDate(initOrder.getOrderDate());
         newOrder.setItemName(itemName);
         newOrder.setComment(initOrder.getComment());
