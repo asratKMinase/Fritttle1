@@ -25,7 +25,7 @@ public class CustomerServlet {
     public ResponseEntity<List> findAllCustomer(){
         return new ResponseEntity<>(customerServices.findAll(), HttpStatus.FOUND);
     }
-    @CrossOrigin(value = "http://localhost:3000")
+    @CrossOrigin(value = "http://localhost:3000", allowCredentials = "true")
     @GetMapping("/findCustomer")
     public ResponseEntity<Customer> findCustomer(@RequestParam String id){
         Customer customer = customerServices.readById(id);
