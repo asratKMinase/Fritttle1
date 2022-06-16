@@ -58,7 +58,7 @@ public class CreditCardServlet {
         return new ResponseEntity<>(creditCard, HttpStatus.OK);
     }
     @DeleteMapping("/deleteCreditCard")
-    public void DeleteCreditCard(@RequestBody String deletedCreditCard){
+    public void DeleteCreditCard(@RequestParam String deletedCreditCard){
         creditCardService.delete(deletedCreditCard);
     }
 }
