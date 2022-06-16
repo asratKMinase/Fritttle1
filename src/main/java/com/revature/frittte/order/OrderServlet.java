@@ -27,7 +27,6 @@ public class OrderServlet {
         this.customerService = customerService;
 
     }
-    @CrossOrigin(value = "http://localhost:3000", allowCredentials = "true")
     @PostMapping("/order")
     public ResponseEntity<OrderData> CreateOrder(@RequestBody OrderInitializer initOrder, HttpSession req){
 
@@ -50,7 +49,6 @@ public class OrderServlet {
 
     }
 
-    @CrossOrigin(value = "http://localhost:3000")
     @GetMapping("/findAllMyOrders/{username}")
     public ResponseEntity<List> findAllMyOrders(@PathVariable String username) {
         return new ResponseEntity<>(orderServices.findAllMyOrders(username), HttpStatus.OK);
