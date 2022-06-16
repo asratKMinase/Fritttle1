@@ -1,6 +1,7 @@
 package com.revature.frittte.creditcard;
 
 import com.revature.frittte.customer.Customer;
+import com.revature.frittte.customer.CustomerService;
 import com.revature.frittte.util.web.dto.CCInitializer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +15,11 @@ public class CreditCardServlet {
 
     private final CreditCardService creditCardService;
 
-    public CreditCardServlet(CreditCardService creditCardService) {
+    private final CustomerService customerService;
+
+    public CreditCardServlet(CreditCardService creditCardService, CustomerService customerService) {
         this.creditCardService = creditCardService;
+        this.customerService = customerService;
     }
 
 
@@ -32,7 +36,9 @@ public class CreditCardServlet {
             newCC.setCvv(newCreditCard.getCvv());
             newCC.setExpDate(newCreditCard.getExpDate());
             newCC.setLimit(newCreditCard.getLimit());
-            newCC.setCustomerUsername(authCustomer);
+            //newCC.setCustomerUsername(newCreditCard.getCustomerUsername());
+            newCC.setCustomerUsername(customerService.readById(newCreditCard.getCustomerUsername()));
+
 
         CreditCard creditCard = creditCardService.create(newCC);
 

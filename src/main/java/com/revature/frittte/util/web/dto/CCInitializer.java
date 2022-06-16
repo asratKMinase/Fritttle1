@@ -20,6 +20,6 @@ public class CCInitializer {
     private int cvv;
     private String expDate;
     private int limit;
-    private Customer customerUsername;
+    private String customerUsername;
 
 }
