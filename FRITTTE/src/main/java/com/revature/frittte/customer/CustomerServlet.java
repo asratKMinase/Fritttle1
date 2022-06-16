@@ -30,6 +30,7 @@ public class CustomerServlet {
         Customer customer = customerServices.readById(id);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
+
     @PostMapping("/register")
     public ResponseEntity<Customer> saveCustomer(@RequestBody Customer customer) {
         Customer newCustomer = customerServices.create(customer);

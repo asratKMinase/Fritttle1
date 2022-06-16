@@ -39,9 +39,6 @@ public class FoodServlet {
         return new ResponseEntity<>(updatedFoodItem, HttpStatus.OK);
     }
 
-
-
-
     @DeleteMapping("/deleteFoodItem")
     public void deleteFoodItem(@RequestParam String id) {
 

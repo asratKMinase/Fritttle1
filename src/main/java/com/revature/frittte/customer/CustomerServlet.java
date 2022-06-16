@@ -17,10 +17,6 @@ public class CustomerServlet {
     public CustomerServlet(CustomerService customerServices) {
         this.customerServices = customerServices;
     }
-
-
-
-
     @GetMapping("/welcome")
     public @ResponseBody String test(){
         return "Welcome to the wonderful world of Frittte";
@@ -29,6 +25,7 @@ public class CustomerServlet {
     public ResponseEntity<List> findAllCustomer(){
         return new ResponseEntity<>(customerServices.findAll(), HttpStatus.FOUND);
     }
+    @CrossOrigin(value = "http://localhost:3000")
     @GetMapping("/findCustomer")
     public ResponseEntity<Customer> findCustomer(@RequestParam String id){
         Customer customer = customerServices.readById(id);
